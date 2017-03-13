@@ -1,0 +1,59 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CIS331Assignment7"
+        mc:Ignorable="d"
+        Title="Ye Ole File Xeroxer" Height="450" Width="525" MinHeight="450" MinWidth="525">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="150"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition MinHeight="150"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="Source Directory and Files">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="textBoxSourceDir" Height="25" Grid.Column="0" VerticalContentAlignment="Center"/>
+                    <Button x:Name="buttonSelectSource" Margin="5,5,0,5"  Content="Select Source" Grid.Column="1"/>
+                </Grid>
+                <ListView x:Name="listViewSourceDir" Grid.Row="1" SelectionMode="Multiple"/>
+            </Grid>
+        </GroupBox>
+        <GridSplitter Height="2" HorizontalAlignment="Stretch" Grid.Row="1"/>
+        <GroupBox Grid.Row="2" Header="Destination Directory and Files">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="textBoxDestinationDir" Height="25" Grid.Column="0" VerticalContentAlignment="Center"/>
+                    <Button x:Name="buttonSelectDestination" Margin="5,5,0,5" Content="Select Destination" Grid.Column="1"/>
+                </Grid>
+                <ListView x:Name="listViewDestinationDir" Grid.Row="1" SelectionMode="Multiple" AllowDrop="True"/>
+            </Grid>
+        </GroupBox>
+        <StackPanel Orientation="Vertical" Grid.Row="3" Width="200" HorizontalAlignment="Right">
+            <Slider x:Name="sliderOverwrite" Width="150" HorizontalAlignment="Center" Margin="3" Minimum="0" Maximum="1" IsSnapToTickEnabled="True" TickFrequency="1"/>
+            <TextBlock x:Name="textBlockCopyState"  HorizontalAlignment="Center" Text="Not Overwriting Existing Files"/>
+        </StackPanel>
+    </Grid>
+</Window>
